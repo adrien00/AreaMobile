@@ -10,7 +10,7 @@ const request = async ({
   try {
     const res = await Axios({
       method,
-      url: `http://10.136.78.245:8080${endpoint}`,
+      url: `${global.backendUrl}${endpoint}`,
       data,
       headers,
     })

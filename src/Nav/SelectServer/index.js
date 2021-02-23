@@ -1,58 +1,38 @@
 import React, { useState } from 'react'
+import { Actions } from 'react-native-router-flux';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
-import request from '../../Helpers/request'
-
 const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [address, setAddress] = useState('')
+  const [port, setPort] = useState('')
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    const res = await request({
-      endpoint: '/user/auth/login',
-      method: 'post',
-      data: {
-        email: email,
-        password: password,
-      },
-      doAlert: true,
-    })
-    if (res?.data?.token) {
-      global.authorization = res.data.token;
-      // history.push('/')
-    }
+  const handleSubmit = () => {
+    global.backendUrl = `http://${address}:${port}`
+    Actions.login()
   }
 
   return (
     <View>
-      <Text style={styles.logo}>Log into Area</Text>
+      <Text style={styles.logo}>Connect to server</Text>
       <View style={styles.inputView} >
         <TextInput
           style={styles.inputText}
-          placeholder="Email..."
+          placeholder="Address..."
           placeholderTextColor="#003f5c"
-          value={email}
-          onChangeText={text => setEmail(text)}
+          value={address}
+          onChangeText={text => setAddress(text)}
         />
       </View>
       <View style={styles.inputView} >
         <TextInput
-          secureTextEntry
           style={styles.inputText}
-          placeholder="Password..."
+          placeholder="Port..."
           placeholderTextColor="#003f5c"
-          value={password}
-          onChangeText={text => setPassword(text)}/>
+          value={port}
+          onChangeText={text => setPort(text)}/>
       </View>
-      <TouchableOpacity>
-        <Text style={styles.forgot}>Forgot Password?</Text>
-      </TouchableOpacity>
       <TouchableOpacity style={styles.loginBtn} onPress={handleSubmit}>
-        <Text style={styles.loginText}>LOGIN</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText}>Signup</Text>
+        <Text style={styles.loginText}>Validate</Text>
       </TouchableOpacity>
     </View>
   )
