@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ActionSheetIOS } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+
 import request from '../../Helpers/request'
 import { ImageBackground } from 'react-native';
 
 
-const Login = () => {
+const Register = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const res = await request({
-      endpoint: '/user/auth/login',
+      endpoint: '/user/auth/register',
       method: 'post',
       data: {
         email: email,
@@ -19,15 +20,15 @@ const Login = () => {
       },
       doAlert: true,
     })
-    if (res?.data?.token) {
-      global.authorization = res.data.token;
-      Actions.home()
+    if (res) {
+      Actions.login()
     }
+
   }
 
   return (
-  <ImageBackground style={ styles.imgBackground } 
-  resizeMode='cover' 
+  <ImageBackground style={ styles.imgBackground }
+  resizeMode='cover'
   source={require('../../../assets/back-2.png')}>
         <View>
           <Text style={styles.logo}>Log into Area</Text>
@@ -49,17 +50,11 @@ const Login = () => {
               value={password}
               onChangeText={text => setPassword(text)}/>
           </View>
-          <TouchableOpacity>
-            <Text style={styles.forgot}>Forgot Password?</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.loginBtn} onPress={handleSubmit}>
-            <Text style={styles.loginText}>LOGIN</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.loginBtn} onPress={() => Actions.register()}>
-            <Text style={styles.loginText}>Signup</Text>
+          <TouchableOpacity style={styles.registerBtn} onPress={handleSubmit}>
+            <Text style={styles.registerText}>REGISTER</Text>
           </TouchableOpacity>
         </View>
-      </ImageBackground>
+          </ImageBackground>
   )
 }
 
@@ -112,9 +107,12 @@ const styles = StyleSheet.create({
     marginStart: 45,
     marginBottom:10
   },
-  loginText:{
-    color:"white"
+  registerText:{
+    color:"white",
+    backgroundColor:'rgba(52, 52, 52, 0.5)',
+    borderRadius:25,
+    height:50,
   }
 });
 
-export default Login
+export default Register

@@ -38,7 +38,7 @@ const Login = () => {
                           value={port}
                           onChangeText={text => setPort(text)}/>
                       </View>
-                      <TouchableOpacity style={styles.loginBtn} onPress={handleSubmit}>
+                      <TouchableOpacity style={styles.loginBtn} onPress={handleSubmit} >
                         <Text style={styles.loginText}>Validate</Text>
                       </TouchableOpacity>
                     </View>
