@@ -31,7 +31,7 @@ const Register = () => {
   resizeMode='cover'
   source={require('../../../assets/back-2.png')}>
         <View>
-          <Text style={styles.logo}>Log into Area</Text>
+          <Text style={styles.logo}>Register into Area</Text>
           <View style={styles.inputView} >
             <TextInput
               style={styles.inputText}
@@ -74,7 +74,10 @@ const styles = StyleSheet.create({
     fontSize:50,
     color:"white",
     marginBottom:40,
-    marginStart: 55,
+    marginStart: 5,
+    marginTop: -80,
+    textAlign: "center",
+
   },
   inputView:{
     width:"80%",
@@ -96,7 +99,7 @@ const styles = StyleSheet.create({
     marginStart: 55,
     marginTop: -10,
   },
-  loginBtn:{
+  registerBtn:{
     width:"80%",
     backgroundColor:'rgba(52, 52, 52, 0.5)',
     borderRadius:25,
@@ -109,9 +112,6 @@ const styles = StyleSheet.create({
   },
   registerText:{
     color:"white",
-    backgroundColor:'rgba(52, 52, 52, 0.5)',
-    borderRadius:25,
-    height:50,
   }
 });
 
