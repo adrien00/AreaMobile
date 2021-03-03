@@ -1,6 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
+import { Actions } from 'react-native-router-flux'
 
+import Button from '../../Common/Components/Button'
 import useAccountProviders from '../../Common/Hooks/useAccountProviders'
 import AccountProviderCard from '../../Common/Components/AccountProviderCard'
 
@@ -10,6 +12,22 @@ const Settings = () => {
   return (
     <View style={styles.back}>
       <Text style={styles.logo}>Account providers :</Text>
+      <Button
+        large
+        onPress={() => Actions.reset('home')}
+        style={{ marginBottom: 10 }}
+      >
+        <Text>Home</Text>
+      </Button>
+      <Button
+        large
+        onPress={() => {
+          global.authorization = ''
+          Actions.reset('login')
+        }}
+      >
+        <Text>Log out</Text>
+      </Button>
       <View >
         {accountProviders.map((accountProvider) => (
           <AccountProviderCard 

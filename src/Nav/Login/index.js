@@ -26,37 +26,42 @@ const Login = () => {
   }
 
   return (
-  <ImageBackground style={ styles.imgBackground } 
-  resizeMode='cover'
-  source={require('../../../assets/back-2.png')}>
-        <View>
-          <Text style={styles.logo}>Log into Area</Text>
-          <View style={styles.inputView} >
-            <TextInput
-              style={styles.inputText}
-              placeholder="Email..."
-              placeholderTextColor="white"
-              value={email}
-              onChangeText={text => setEmail(text)}
-              />
-          </View>
-          <View style={styles.inputView} >
-            <TextInput
-              secureTextEntry
-              style={styles.inputText}
-              placeholder="Password..."
-              placeholderTextColor="white"
-              value={password}
-              onChangeText={text => setPassword(text)}/>
-          </View>
-          <TouchableOpacity style={styles.loginBtn} onPress={handleSubmit}>
-            <Text style={styles.loginText}>LOGIN</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.loginBtn} onPress={() => Actions.register()}>
-            <Text style={styles.loginText}>Signup</Text>
-          </TouchableOpacity>
+    <ImageBackground style={ styles.imgBackground } 
+      resizeMode='cover'
+      source={require('../../../assets/back-2.png')}
+    >
+      <View>
+        <Text style={styles.logo}>Log into Area</Text>
+        <View style={styles.inputView} >
+          <TextInput
+            style={styles.inputText}
+            placeholder="Email..."
+            placeholderTextColor="white"
+            value={email}
+            onChangeText={text => setEmail(text)}
+          />
         </View>
-      </ImageBackground>
+        <View style={styles.inputView} >
+          <TextInput
+            secureTextEntry
+            style={styles.inputText}
+            placeholder="Password..."
+            placeholderTextColor="white"
+            value={password}
+            onChangeText={text => setPassword(text)}
+          />
+        </View>
+        <TouchableOpacity style={styles.loginBtn} onPress={handleSubmit}>
+          <Text style={styles.loginText}>LOGIN</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.loginBtn} onPress={() => Actions.reset('register')}>
+          <Text style={styles.loginText}>GO TO REGISTER</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.loginBtn} onPress={() => Actions.reset('selectServer')}>
+          <Text style={styles.loginText}>CHANGE SERVER</Text>
+        </TouchableOpacity>
+      </View>
+    </ImageBackground>
   )
 }
 

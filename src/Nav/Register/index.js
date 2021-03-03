@@ -39,7 +39,7 @@ const Register = () => {
             placeholderTextColor="white"
             value={email}
             onChangeText={text => setEmail(text)}
-            />
+          />
         </View>
         <View style={styles.inputView} >
           <TextInput
@@ -48,10 +48,17 @@ const Register = () => {
             placeholder="Password..."
             placeholderTextColor="white"
             value={password}
-            onChangeText={text => setPassword(text)}/>
+            onChangeText={text => setPassword(text)}
+          />
         </View>
         <TouchableOpacity style={styles.registerBtn} onPress={handleSubmit}>
           <Text style={styles.registerText}>REGISTER</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.registerBtn} onPress={() => Actions.reset('login')}>
+          <Text style={styles.registerText}>GO TO LOGIN</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.registerBtn} onPress={() => Actions.reset('selectServer')}>
+          <Text style={styles.registerText}>CHANGE SERVER</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>

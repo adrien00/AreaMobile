@@ -7,6 +7,7 @@ import Register from './src/Nav/Register'
 import Home from './src/Nav/Home'
 import Settings from './src/Nav/Settings';
 import Authorization from './src/Nav/Settings/Authorization';
+import AreaModal from './src/Nav/Home/AreaModal';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Scene key="home" component={Home} />
         <Scene key="settings" component={Settings} />
         <Scene key="authorization" component={Authorization} />
+        <Scene key="areaModal" component={AreaModal} />
       </Scene>
     </Router>
   );

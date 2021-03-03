@@ -1,6 +1,7 @@
-import styled, { css } from 'styled-components'
+import React from 'react'
+import styled, { css } from 'styled-components/native'
 
-const StyledButton = styled.button`
+const StyledButton = styled.TouchableOpacity`
   position: relative;
   padding: 8px 15px;
   font-weight: bold;
@@ -9,7 +10,6 @@ const StyledButton = styled.button`
     if (props.large) return '16px'
     return '14px'
   }};
-  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   background-color: ${(props) => {
     if (props.disabled) return '#9b9b9b4d'
     if (props.underline || props.invert) return 'transparent'
@@ -20,8 +20,9 @@ const StyledButton = styled.button`
     if (props.disabled) return '#9b9b9b'
     if (props.redColor) return '#d90808'
     return '#9869c4'
-  }}};
-  border: 1px solid ${(props) => {
+  }};
+  border-width: 1px;
+  border-color: ${(props) => {
     if (props.checked) return 'transparent'
     if (props.isCheckable) return '#4444444d'
     if (props.invert) return '#9869c466'
@@ -35,11 +36,11 @@ const StyledButton = styled.button`
   &:hover {
     border-color: transparent;
     background-color: ${(props) => {
-    if (props.disabled) return '#9b9b9b4d'
-    if (props.underline) return 'transparent'
-    if (props.redColor) return '#d9080866'
-    return '#9869c466'
-  }};
+      if (props.disabled) return '#9b9b9b4d'
+      if (props.underline) return 'transparent'
+      if (props.redColor) return '#d9080866'
+      return '#9869c466'
+    }};
   }
 
   ${props => props.underline
@@ -56,7 +57,8 @@ const StyledButton = styled.button`
       &:hover:after {
         background-color: ${props.disabled ? ' #9b9b9b4d' : '#9869c44d'};
       }
-    `}
+    `
+  };
 `
 
 const Button = ({

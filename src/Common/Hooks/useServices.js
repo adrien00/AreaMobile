@@ -9,7 +9,7 @@ const useServices = () => {
     const res = await request({
       endpoint: '/service',
       headers: {
-        authorization: localStorage.getItem('authorization') || ''
+        authorization: global.authorization || ''
       }
     })
     setServices(res?.data?.services)

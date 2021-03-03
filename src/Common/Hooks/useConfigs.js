@@ -9,7 +9,7 @@ const useConfigs = () => {
     const res = await request({
       endpoint: '/service/area/configs',
       headers: {
-        authorization: localStorage.getItem('authorization') || ''
+        authorization: global.authorization || ''
       }
     })
     setConfigs(res?.data?.configs)
