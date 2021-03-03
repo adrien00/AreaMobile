@@ -9,41 +9,39 @@ const Login = () => {
 
   const handleSubmit = () => {
     global.backendUrl = `http://${address}:${port}`
-    Actions.login()
+    Actions.reset('login')
   }
 
   return (
-
-
-  <ImageBackground style={ styles.imgBackground } 
-                  resizeMode='cover' 
-                  source={require('../../../assets/back-2.png')}>
-                    <View>
-                      
-                      <Text style={styles.logo}>Connect to server</Text>
-                      <View style={styles.inputView} >
-                        <TextInput
-                          style={styles.inputText}
-                          placeholder="Address..."
-                          placeholderTextColor="white"
-                          value={address}
-                          onChangeText={text => setAddress(text)}
-                        />
-                      </View>
-                      <View style={styles.inputView} >
-                        <TextInput
-                          style={styles.inputText}
-                          placeholder="Port..."
-                          placeholderTextColor="white"
-                          value={port}
-                          onChangeText={text => setPort(text)}/>
-                      </View>
-                      <TouchableOpacity style={styles.loginBtn} onPress={handleSubmit} >
-                        <Text style={styles.loginText}>Validate</Text>
-                      </TouchableOpacity>
-                    </View>
-  </ImageBackground> 
-                  )
+    <ImageBackground style={ styles.imgBackground } 
+      resizeMode='cover' 
+      source={require('../../../assets/back-2.png')}
+    >
+      <View>
+        <Text style={styles.logo}>Connect to server</Text>
+        <View style={styles.inputView} >
+          <TextInput
+            style={styles.inputText}
+            placeholder="Address..."
+            placeholderTextColor="white"
+            value={address}
+            onChangeText={text => setAddress(text)}
+          />
+        </View>
+        <View style={styles.inputView} >
+          <TextInput
+            style={styles.inputText}
+            placeholder="Port..."
+            placeholderTextColor="white"
+            value={port}
+            onChangeText={text => setPort(text)}/>
+        </View>
+        <TouchableOpacity style={styles.loginBtn} onPress={handleSubmit} >
+          <Text style={styles.loginText}>Validate</Text>
+        </TouchableOpacity>
+      </View>
+    </ImageBackground> 
+  )
 }
 
 const styles = StyleSheet.create({

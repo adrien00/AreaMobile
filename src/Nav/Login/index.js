@@ -21,7 +21,7 @@ const Login = () => {
     })
     if (res?.data?.token) {
       global.authorization = res.data.token;
-      Actions.home()
+      Actions.reset('home')
     }
   }
 

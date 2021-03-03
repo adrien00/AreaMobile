@@ -1,5 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components/native'
+import { Actions } from 'react-native-router-flux'
 
 import request from '../../../Helpers/request'
 
@@ -13,7 +14,6 @@ const Container = Styled.View`
   margin-top: 20px;
   margin-start: 10px;
   margin-end: 10px;
-
 `
 
 const AccountProviderName = Styled.View`
@@ -51,29 +51,30 @@ const Text = Styled.Text`
   color: ${props => props.color || '#444444'};
 `
 
-const AccountProviderCard = ({ accountProvider }) => {
+const AccountProviderCard = ({ accountProvider, refreshAccountProviders }) => {
   const { id, name, connected, path } = accountProvider
 
-  const disconnect = async () => {
-    if (!connected) return
-    await request({
-      endpoint: '/accountProvider/auth/disconnect',
-      method: 'post',
-      data: { id },
-      headers: {
-        authorization: global.authorization || ''
-      }
-    })
+  const handleClick = async () => {
+    if (!connected) {
+      Actions.authorization({ uri: `${global.backendUrl}${path}` })
+    } else {
+      await request({
+        endpoint: '/accountProvider/auth/disconnect',
+        method: 'post',
+        data: { id },
+        headers: {
+          authorization: global.authorization || ''
+        }
+      })
+      await refreshAccountProviders()
+    }
   }
 
   return (
     <Container>
       <AccountProviderName>
         <Text large>{name}</Text>
-        <AccountProviderButton
-          onPress={disconnect}
-          href={connected ? '' : `${global.backendUrl}${path}`}
-        >
+        <AccountProviderButton onPress={handleClick}>
           <Text>{connected ? 'Disconnect' : 'Connect'}</Text>
         </AccountProviderButton>
       </AccountProviderName>

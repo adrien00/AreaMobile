@@ -21,40 +21,40 @@ const Register = () => {
       doAlert: true,
     })
     if (res) {
-      Actions.login()
+      Actions.reset('login')
     }
-
   }
 
   return (
-  <ImageBackground style={ styles.imgBackground }
-  resizeMode='cover'
-  source={require('../../../assets/back-2.png')}>
-        <View>
-          <Text style={styles.logo}>Register into Area</Text>
-          <View style={styles.inputView} >
-            <TextInput
-              style={styles.inputText}
-              placeholder="Email..."
-              placeholderTextColor="white"
-              value={email}
-              onChangeText={text => setEmail(text)}
-              />
-          </View>
-          <View style={styles.inputView} >
-            <TextInput
-              secureTextEntry
-              style={styles.inputText}
-              placeholder="Password..."
-              placeholderTextColor="white"
-              value={password}
-              onChangeText={text => setPassword(text)}/>
-          </View>
-          <TouchableOpacity style={styles.registerBtn} onPress={handleSubmit}>
-            <Text style={styles.registerText}>REGISTER</Text>
-          </TouchableOpacity>
+    <ImageBackground style={ styles.imgBackground }
+      resizeMode='cover'
+      source={require('../../../assets/back-2.png')}
+    >
+      <View>
+        <Text style={styles.logo}>Register into Area</Text>
+        <View style={styles.inputView} >
+          <TextInput
+            style={styles.inputText}
+            placeholder="Email..."
+            placeholderTextColor="white"
+            value={email}
+            onChangeText={text => setEmail(text)}
+            />
         </View>
-          </ImageBackground>
+        <View style={styles.inputView} >
+          <TextInput
+            secureTextEntry
+            style={styles.inputText}
+            placeholder="Password..."
+            placeholderTextColor="white"
+            value={password}
+            onChangeText={text => setPassword(text)}/>
+        </View>
+        <TouchableOpacity style={styles.registerBtn} onPress={handleSubmit}>
+          <Text style={styles.registerText}>REGISTER</Text>
+        </TouchableOpacity>
+      </View>
+    </ImageBackground>
   )
 }
 
