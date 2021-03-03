@@ -27,7 +27,7 @@ const Login = () => {
 
   return (
   <ImageBackground style={ styles.imgBackground } 
-  resizeMode='cover' 
+  resizeMode='cover'
   source={require('../../../assets/back-2.png')}>
         <View>
           <Text style={styles.logo}>Log into Area</Text>

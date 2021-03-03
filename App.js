@@ -5,6 +5,7 @@ import SelectServer from './src/Nav/SelectServer'
 import Login from './src/Nav/Login'
 import Register from './src/Nav/Register'
 import Home from './src/Nav/Home'
+import { Settings } from 'react-native';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Scene key="login" component={Login} />
         <Scene key="register" component={Register} />
         <Scene key="home" component={Home} />
+        <Scene key="settings" component={Settings} />
       </Scene>
     </Router>
   );

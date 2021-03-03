@@ -1,18 +1,16 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-
 import request from '../../Helpers/request'
 import { ImageBackground } from 'react-native';
+import {setings} from '../Settings';
 
 
-const Home = () => {
-
+const Register = () => {
+  
   return (
-    <Text >Welcome</Text>
-
+    <Text> Log into Area</Text>
   )
 }
 
-
-export default Home
+export default Register
