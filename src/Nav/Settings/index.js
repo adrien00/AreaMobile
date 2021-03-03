@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { parse } from 'query-string'
+import { Text, View } from 'react-native';
 
 //import { Title, AccountProviders } from './Settings.module.css'
 
@@ -34,17 +35,17 @@ const Settings = () => {
 
 
   return (
-    <div>
-      <h1 className={Title}>Account providers :</h1>
-      <div className={AccountProviders}>
+    <View>
+      <Text>Account providers :</Text>
+      <View>
         {accountProviders.map((accountProvider) => (
           <AccountProviderCard
             key={accountProvider.name}
             accountProvider={accountProvider}
           />
         ))}
-      </div>
-    </div>
+      </View>
+    </View>
   )
 }
 

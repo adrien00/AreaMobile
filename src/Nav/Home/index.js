@@ -3,14 +3,16 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-nativ
 import { Actions } from 'react-native-router-flux';
 import request from '../../Helpers/request'
 import { ImageBackground } from 'react-native';
-import {setings} from '../Settings';
 
 
-const Register = () => {
-  
+const Home = () => {
   return (
-    <Text> Log into Area</Text>
+    <TouchableOpacity onPress={() => Actions.settings()}>
+      <Text>
+        Settings
+      </Text>
+    </TouchableOpacity>
   )
 }
 
-export default Register
+export default Home

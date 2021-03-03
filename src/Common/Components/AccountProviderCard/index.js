@@ -1,4 +1,6 @@
+import React from 'react'
 import Styled from 'styled-components/native'
+
 import request from '../../../Helpers/request'
 
 const Container = Styled.View`
@@ -12,43 +14,37 @@ const Container = Styled.View`
 
 const AccountProviderName = Styled.View`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 5px;
-  border-bottom: 1px solid #444444;
+  border-bottom-color: #444444;
+  border-bottom-width: 1px;
   margin-bottom: 20px;
-
-  & > p {
-    font-size: 20px;
-  }
 `
 
-// const AccountProviderButton = Styled.TouchableOpacity`
-//   background-color: #9869c44d;
-//   border-radius: 5px;
-//   padding: 5px 10px;
-//   border: none;
-//   cursor: pointer;
-//   color: #9869c4;
-//   font-size: 14px;
-//   font-weight: 700;
-//   text-decoration: none;
-// `
+const AccountProviderButton = Styled.TouchableOpacity`
+  background-color: #9869c44d;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: none;
+  color: #9869c4;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+`
 
 const AccountProviderStatus = Styled.View`
   display: flex;
+  flex-direction: row;
   align-items: center;
+`
 
-  & > p {
-    font-size: 16px;
-  }
-  & > p:first-child {
-    font-weight: 700;
-  }
-  & > p:last-child {
-    color: ${props => props.connected ? '#00a6a6' : '#d90808'};
-    margin-left: 5px;
-  }
+const Text = Styled.Text`
+  font-size: ${props => props.large ? '20px' : '16px'};
+  font-weight: ${props => props.bold ? '700' : '400'};
+  margin-left: ${props => props.padded ? '5px' : 0};
+  color: ${props => props.color || '#444444'};
 `
 
 const AccountProviderCard = ({ accountProvider }) => {
@@ -69,17 +65,19 @@ const AccountProviderCard = ({ accountProvider }) => {
   return (
     <Container>
       <AccountProviderName>
-        <p>{name}</p>
-        {/* <AccountProviderButton
-          onClick={disconnect}
+        <Text large>{name}</Text>
+        <AccountProviderButton
+          onPress={disconnect}
           href={connected ? '' : `${global.backendUrl}${path}`}
         >
-          {connected ? 'Disconnect' : 'Connect'}
-        </AccountProviderButton> */}
+          <Text>{connected ? 'Disconnect' : 'Connect'}</Text>
+        </AccountProviderButton>
       </AccountProviderName>
       <AccountProviderStatus connected={connected}>
-        <p>Status :</p>
-        <p>{connected ? 'connected' : 'not connected'}</p>
+        <Text bold>Status :</Text>
+        <Text color={connected ? '#00a6a6' : '#d90808'} padded>
+          {connected ? 'connected' : 'not connected'}
+        </Text>
       </AccountProviderStatus>
     </Container>
   )

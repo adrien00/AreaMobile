@@ -5,7 +5,7 @@ import SelectServer from './src/Nav/SelectServer'
 import Login from './src/Nav/Login'
 import Register from './src/Nav/Register'
 import Home from './src/Nav/Home'
-import { Settings } from 'react-native';
+import Settings from './src/Nav/Settings';
 
 const App = () => {
   return (

@@ -49,9 +49,6 @@ const Login = () => {
               value={password}
               onChangeText={text => setPassword(text)}/>
           </View>
-          <TouchableOpacity>
-            <Text style={styles.forgot}>Forgot Password?</Text>
-          </TouchableOpacity>
           <TouchableOpacity style={styles.loginBtn} onPress={handleSubmit}>
             <Text style={styles.loginText}>LOGIN</Text>
           </TouchableOpacity>
