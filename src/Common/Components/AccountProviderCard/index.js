@@ -10,6 +10,10 @@ const Container = Styled.View`
   flex-direction: column;
   background-color: #ffffff;
   flex: 1 1 190px;
+  margin-top: 20px;
+  margin-start: 10px;
+  margin-end: 10px;
+
 `
 
 const AccountProviderName = Styled.View`

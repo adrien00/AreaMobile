@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { parse } from 'query-string'
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+
+
 
 //import { Title, AccountProviders } from './Settings.module.css'
 
@@ -35,11 +37,11 @@ const Settings = () => {
 
 
   return (
-    <View>
-      <Text>Account providers :</Text>
-      <View>
+    <View style={styles.back}>
+      <Text style={styles.logo}>Account providers :</Text>
+      <View >
         {accountProviders.map((accountProvider) => (
-          <AccountProviderCard
+          <AccountProviderCard 
             key={accountProvider.name}
             accountProvider={accountProvider}
           />
@@ -48,5 +50,17 @@ const Settings = () => {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  back: {
+    backgroundColor: '#eeeeee',
+    
+  },
+  logo: {
+    fontWeight:"bold",
+    fontSize:30,
+    color:'#444444',
+  },
+});
 
 export default Settings
