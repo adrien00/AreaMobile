@@ -6,7 +6,7 @@ import request from '../../../Helpers/request'
 import Select from '../../../Common/Components/Select'
 
 const TextContainer = Styled.View`
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: row;
 `

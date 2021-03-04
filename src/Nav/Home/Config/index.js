@@ -13,8 +13,10 @@ const Wrapper = Styled.View`
   justify-content: space-between;
   padding: 20px;
   background-color: #ffffff;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  margin-start: 15px;
+  margin-end: 15px;
 `
 
 const Container = Styled.View`

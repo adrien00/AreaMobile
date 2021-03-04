@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { ScrollView, StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
 import useServices from '../../Common/Hooks/useServices'
 import useConfigs from '../../Common/Hooks/useConfigs'
@@ -12,18 +12,20 @@ const Home = () => {
   const { configs, refreshConfigs } = useConfigs()
 
   return (
+    <ScrollView>
     <View style={styles.back}>
       <Text style={styles.title}>Actions - Reactions</Text>
       <Button
         large
         onPress={() => Actions.reset('settings')}
-        style={{ marginBottom: 10 }}
-      >
+        style={{ marginBottom: 10, marginStart: 10, marginEnd: 315}}
+              >
         <Text>Settings</Text>
       </Button>
       <Button
         large
         onPress={() => Actions.reset('areaModal', { services, update: false, refreshConfigs })}
+        style={{marginTop: -45, marginStart: 115, marginEnd: 198}}
       >
         <Text>New AREA</Text>
       </Button>
@@ -39,6 +41,7 @@ const Home = () => {
         ))}
       </View>
     </View>
+    </ScrollView>
   )
 }
 
@@ -48,10 +51,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#eeeeee',
   },
   title: {
-    fontSize: 32,
-    fontWeight: '700',
+    fontWeight:"bold",
+    fontSize:30,
+    color:'#444444',
     margin: 10,
-    color: '#444444',
   },
   areas: {
     flex: 1,

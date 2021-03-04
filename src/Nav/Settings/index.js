@@ -15,7 +15,7 @@ const Settings = () => {
       <Button
         large
         onPress={() => Actions.reset('home')}
-        style={{ marginBottom: 10 }}
+        style={{ marginBottom: 10, marginStart: 10, marginEnd: 330}}
       >
         <Text>Home</Text>
       </Button>
@@ -25,6 +25,7 @@ const Settings = () => {
           global.authorization = ''
           Actions.reset('login')
         }}
+        style={{marginTop: -45, marginStart: 100, marginEnd: 230}}
       >
         <Text>Log out</Text>
       </Button>
