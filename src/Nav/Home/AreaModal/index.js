@@ -87,13 +87,11 @@ const AreaModal = ({
       headers: {
         authorization: global.authorization || ''
       },
-      doAlert: true,
+      doAlert: false,
     })
     setDisabled(false)
-    if (res) {
-      await refreshConfigs()
-      Actions.reset('home')
-    }
+    await refreshConfigs()
+    Actions.reset('home')
   }
 
   const getCleanActionParams = (value) => {
